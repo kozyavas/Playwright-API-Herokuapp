@@ -27,7 +27,7 @@ test.describe('POST tests', async () => {
         const data = await response.json();
         expect(data.token).toBeDefined();
         expect(data.token).not.toBeNull();
-    })
+    });
 
     test('Create a new booking with POST request', async ({ request }) => {
         const response = await request.post('https://restful-booker.herokuapp.com/booking', {

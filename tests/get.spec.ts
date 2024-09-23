@@ -38,13 +38,10 @@ test.describe('GET tests', async() => {
         data.forEach(post  => {
             expect(post.userId).toBe(1);
         });
-
     })
 
     test('GET request with authorization header', async ({ request }) => {
         const response = await request.get('https://restful-booker.herokuapp.com/auth', {
-            
-        })
-    })
-   
+        });
+    });   
 });

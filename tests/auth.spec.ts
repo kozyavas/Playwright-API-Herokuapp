@@ -3,6 +3,7 @@ import { test, expect } from '@playwright/test';
 test.describe('Basic Authentication Tests', () => {
     
     test('Successful login with Basic Authentication', async ({ request }) => {
+        // Node.js ortamında kullanıcı adı ve şifrenin Base64 formatına kodlanması için kullanılan yöntem.
         const auth = Buffer.from('admin:password123').toString('base64');
         const response = await request.get('https://restful-booker.herokuapp.com/booking', {
             headers: {
