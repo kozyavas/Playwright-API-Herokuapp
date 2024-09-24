@@ -10,7 +10,7 @@ test.describe('GET tests', async() => {
 
         const data = await response.json();
     
-        expect(data.firstname).toBe('Jim');
+        expect.soft(data.firstname).toBe('Jim');
         expect(data.lastname).toBe('Brown');
         expect(data.totalprice).toBe(879);
         expect(data.bookingdates.checkin).toBe('2024-08-30');
@@ -41,7 +41,7 @@ test.describe('GET tests', async() => {
     })
 
     test('GET request with authorization header', async ({ request }) => {
-        const response = await request.get('https://restful-booker.herokuapp.com/auth', {
+        const response = await request.get('/auth', {
         });
     });   
 });

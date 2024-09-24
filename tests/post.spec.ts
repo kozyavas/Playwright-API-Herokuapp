@@ -4,7 +4,7 @@ let token; // Token'ı global olarak tanımlıyoruz.
 test.describe('POST tests', async () => {
 
     test.beforeEach(async ({ request }) => {
-        const authResponse = await request.post('https://restful-booker.herokuapp.com/auth', {
+        const authResponse = await request.post('/auth', {
             data: {
                 username: 'admin',
                 password: 'password123'
@@ -16,7 +16,7 @@ test.describe('POST tests', async () => {
     test('POST to authenticate and receive a token', async ({ request }) => {
         // 1. Kimlik doğrulama için gerekli kullanıcı adı ve şifre ile POST isteği yapılıyor.POST'da body olur
         // Authorization'i beforeEach'te kullanarak her test icin gecerli yapabiliriz.
-        const response = await request.post('https://restful-booker.herokuapp.com/auth', {
+        const response = await request.post('/auth', {
             data: {
                 username: 'admin',
                 password: 'password123'
@@ -30,7 +30,7 @@ test.describe('POST tests', async () => {
     });
 
     test('Create a new booking with POST request', async ({ request }) => {
-        const response = await request.post('https://restful-booker.herokuapp.com/booking', {
+        const response = await request.post('/booking', {
             headers: {
                 'Content-Type': 'application/json',
                 'Authorization': `Bearer ${token}`

@@ -5,7 +5,7 @@ test.describe('Basic Authentication Tests', () => {
     test('Successful login with Basic Authentication', async ({ request }) => {
         // Node.js ortamında kullanıcı adı ve şifrenin Base64 formatına kodlanması için kullanılan yöntem.
         const auth = Buffer.from('admin:password123').toString('base64');
-        const response = await request.get('https://restful-booker.herokuapp.com/booking', {
+        const response = await request.get('/booking', {
             headers: {
                 'Authorization': `Basic $(auth)`
             }
@@ -18,7 +18,7 @@ test.describe('Bearer Token Authentication Tests', () =>{
     let token;
 
     test.beforeAll(async ({ request }) => {
-        const authResponse = await request.post('https://restful-booker.herokuapp.com/auth', {
+        const authResponse = await request.post('/auth', {
             data: {
                 username: 'admin',
                 password: 'password123'
@@ -29,7 +29,7 @@ test.describe('Bearer Token Authentication Tests', () =>{
     })
 
     test('Access protected endpoint with Bearer Token', async ({ request }) => {
-        const response = await request.get('https://restful-booker.herokuapp.com/booking/1', {
+        const response = await request.get('/booking/1', {
             headers: {
                 'Authorization': `Bearer ${token}`
             }

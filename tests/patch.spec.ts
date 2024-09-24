@@ -3,7 +3,7 @@ import { test, expect } from '@playwright/test';
 test.describe('PATCH booking partial update tests', () => {
     
     test('Partially update booking details using PATCH', async ({ request }) => {        
-        const response = await request.patch('https://restful-booker.herokuapp.com/booking/1', {
+        const response = await request.patch('/booking/1', {
             headers: {
                 'Content-type': 'application/json',
                 'Authorization': 'Basic YWRtaW46cGFzc3dvcmQxMjM='

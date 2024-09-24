@@ -4,7 +4,7 @@ let token;
 test.describe('PUT update tests', async () => {
     
     test('Update an entire booking using PUT', async ({ request }) => {
-        const response = await request.put('https://restful-booker.herokuapp.com/booking/1', {
+        const response = await request.put('/booking/1', {
             headers: {
                 'Content-Type': 'application/json',
                 'Accept': 'application/json',

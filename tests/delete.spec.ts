@@ -7,13 +7,13 @@ test.describe('Booking DELETE tests', () => {
         const token = 'Basic YWRtaW46cGFzc3dvcmQxMjM=';
 
         const bookingId = 123;
-        const response = await request.delete(`https://restful-booker.herokuapp.com/booking/${bookingId}`, {
+        const response = await request.delete(`/booking/${bookingId}`, {
             headers: {
                 'Authorization': `${token}`
             }
         });
         expect(response.status()).toBe(201);
-        const confirmResponse = await request.get(`https://restful-booker.herokuapp.com/booking/${bookingId}`, {
+        const confirmResponse = await request.get(`/booking/${bookingId}`, {
             headers: {
                 'Authorization': `${token}`
             }
